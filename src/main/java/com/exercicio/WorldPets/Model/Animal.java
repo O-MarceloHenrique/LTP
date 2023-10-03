@@ -1,7 +1,15 @@
-package com.exercicio.WorldPets.Model;
+package com.exercicio.WorldPets.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Animal {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String raca;
     private String idade;
     private String porte;
@@ -19,11 +27,11 @@ public class Animal {
         this.especie = especie;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

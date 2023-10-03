@@ -1,32 +1,9 @@
-package com.exercicio.WorldPets.Repository;
+package com.exercicio.WorldPets.repository;
 
-import java.util.ArrayList;
-import java.util.function.Predicate;
+import org.springframework.data.repository.CrudRepository;
 
-import com.exercicio.WorldPets.Model.Animal;
+import com.exercicio.WorldPets.model.Animal;
 
-public class AnimalRepository {
-    private static ArrayList<Animal> animals;
-	
-    public static void init(){
-        animals = new ArrayList<Animal>();
-        animals.add(new Animal("ViraLata", "1", "pequeno", "macho", "cachorro"));
-    }
-
-	public AnimalRepository() {
-        animals = new ArrayList<>();
-    }
-
-    public static void add(Animal animal) {
-		animals.add(animal);
-	}
-
-    public static void deletar(Animal animal) {
-        Predicate<Animal> criterio = animallista -> animallista.getId() == animal.getId();
-		animals.removeIf(criterio);
-	}
-
-    public static ArrayList<Animal> all() {
-        return animals;
-    }
+public interface AnimalRepository extends CrudRepository<Animal, Long> {
+    
 }

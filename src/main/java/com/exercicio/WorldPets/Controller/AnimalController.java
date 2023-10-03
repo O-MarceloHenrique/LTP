@@ -1,36 +1,53 @@
-package com.exercicio.WorldPets.Controller;
+package com.exercicio.WorldPets.controller;
 
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exercicio.WorldPets.Model.Animal;
-import com.exercicio.WorldPets.Model.AnimalDAO;
-import com.exercicio.WorldPets.Repository.AnimalRepository;
+import com.exercicio.WorldPets.model.Animal;
+import com.exercicio.WorldPets.repository.AnimalRepository;
 
 @RestController
+@CrossOrigin
 public class AnimalController {
-    
-    @PostMapping("/cadastro/animal")
-    public void addAnimal(@RequestBody Animal animal) {
-        AnimalDAO anim = AnimalDAO.getInstance();
-        anim.create(animal);
-    }
+    @Autowired
+    AnimalRepository animalsRepository;
 
+    @PostMapping("/cadastro/animal")
+    public Animal addAnimal(@RequestBody Animal animal) {
+        return animalsRepository.save(animal);
+    }
+    
     @GetMapping("/recuperar/animal")
     public List<Animal> listarAnimals() {
-        return AnimalRepository.all();
+        return (List<Animal>) animalsRepository.findAll();
     }
 
-    @DeleteMapping("/deletar/animal")
-    public ResponseEntity<String> deleteAnimal(@RequestBody Animal animal){
-        AnimalRepository.deletar(animal);
-        return ResponseEntity.ok("O animal foi excluido com sucesso");
+    @GetMapping("/recuperar/animal/{id}")
+    public Optional<Animal> listarAnimalId(@PathVariable("id") Long id) {
+        if(animalsRepository.existsById(id)){
+            return animalsRepository.findById(id);
+        }else{
+            return null;
+        }
+    }
+
+    @DeleteMapping("/deletar/animal/{id}")
+    public String deleteAnimal(@PathVariable("id") Long id){
+        if(animalsRepository.existsById(id)){
+            animalsRepository.deleteById(id);
+            return "Animal foi excluido com sucesso!";
+        }else{
+            return "ID do animal não encontrado!";
+        }
     }
 }

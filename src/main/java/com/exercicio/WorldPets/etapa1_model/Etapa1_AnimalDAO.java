@@ -1,11 +1,12 @@
-package com.exercicio.WorldPets.Model;
+/* 
+package com.exercicio.WorldPets.model;
 
 import java.util.ArrayList;
 
-import com.exercicio.WorldPets.Repository.AnimalRepository;
+import com.exercicio.WorldPets.etapa1_db.BancoAnimal;
 
 public class AnimalDAO {
-    private static AnimalRepository dbAnimal;
+    private static BancoAnimal dbAnimal;
     private static AnimalDAO instance;
     public static ArrayList<Animal> animals = dbAnimal.all();
 
@@ -19,30 +20,31 @@ public class AnimalDAO {
         return instance;
 	}
     
-    private AnimalRepository getConnection(){
+    private BancoAnimal getConnection(){
         if(this.dbAnimal == null){            
-            AnimalRepository dbAnimal = new AnimalRepository();
+            BancoAnimal dbAnimal = new BancoAnimal();
             this.dbAnimal = dbAnimal;
         }
         return this.dbAnimal;    
     }
     
     public void create(Animal animal){
-        AnimalRepository dbAnimal = getConnection();
+        BancoAnimal dbAnimal = getConnection();
         dbAnimal.add(animal);
     } 
     
     public ArrayList<Animal> read(){
-        AnimalRepository dbAnimal = getConnection();
+        BancoAnimal dbAnimal = getConnection();
         return dbAnimal.all();
     }
     
     public void delete(Animal deletar){
-        AnimalRepository dbAnimal = getConnection();
+        BancoAnimal dbAnimal = getConnection();
         dbAnimal.deletar(deletar);
     }
 
     public ArrayList<Animal> findAll(){
-        return (ArrayList<Animal>) AnimalRepository.all();
+        return (ArrayList<Animal>) BancoAnimal.all();
     }
 }
+*/

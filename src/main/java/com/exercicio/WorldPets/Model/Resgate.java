@@ -1,12 +1,23 @@
-package com.exercicio.WorldPets.Model;
+package com.exercicio.WorldPets.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Resgate {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String dataResgate;
     private String localResgate;
     private String descricaoResgate;
     private String animalResgatado;
     
+    public Resgate(){
+    }
+
     public Resgate(String dataResgate, String localResgate, String descricaoResgate, String animalResgatado) {
         this.dataResgate = dataResgate;
         this.localResgate = localResgate;
@@ -14,11 +25,11 @@ public class Resgate {
         this.animalResgatado = animalResgatado;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,37 +1,9 @@
-package com.exercicio.WorldPets.Repository;
+package com.exercicio.WorldPets.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
+import org.springframework.data.repository.CrudRepository;
 
-import com.exercicio.WorldPets.Model.Resgate;
+import com.exercicio.WorldPets.model.Resgate;
 
-public class ResgateRepository {
-    private static ArrayList<Resgate> resgates;
-	
-    public static void init(){
-        resgates = new ArrayList<Resgate>();
-        resgates.add(new Resgate("19/02/2023", "Bragança Paulista", "Animal atropelado", "Gato"));
-    }
-
-	public ResgateRepository() {
-        resgates = new ArrayList<>();
-    }
-
-    public static void addDadoResgate(Resgate resgate) {
-		resgates.add(resgate);
-	}
-
-    public static ArrayList<Resgate> recuperaDadoResgate() {
-        return resgates;
-    }
-
-    public static List<Resgate> mostrar(){
-        return resgates;
-    }
+public interface ResgateRepository extends CrudRepository<Resgate, Long> {
     
-    public static void deletar(Resgate resgate) {
-        Predicate<Resgate> resgatar = resgateDel -> resgateDel.getId() == resgate.getId();
-		resgates.removeIf(resgatar);
-	}
 }

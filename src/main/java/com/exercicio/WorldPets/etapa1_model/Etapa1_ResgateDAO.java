@@ -1,31 +1,32 @@
-package com.exercicio.WorldPets.Model;
+/*
+package com.exercicio.WorldPets.model;
 
 import java.util.ArrayList;
 
-import com.exercicio.WorldPets.Repository.ResgateRepository;
+import com.exercicio.WorldPets.etapa1_db.BancoResgate;
 
 public class ResgateDAO {
-    private ResgateRepository dbResgate;
+    private BancoResgate dbResgate;
     private static ResgateDAO instance;
 
     private ResgateDAO(){
     }
     
-    private ResgateRepository getConnection(){
+    private BancoResgate getConnection(){
         if(this.dbResgate == null){            
-            ResgateRepository dbResgate = new ResgateRepository();
+            BancoResgate dbResgate = new BancoResgate();
             this.dbResgate = dbResgate;
         }
         return this.dbResgate;    
     }
     
     public void criar(Resgate novo){
-        ResgateRepository dbResgate = getConnection();
+        BancoResgate dbResgate = getConnection();
         dbResgate.addDadoResgate(novo);
     } 
     
     public ArrayList<Resgate> read(){
-        ResgateRepository dbResgate = getConnection();
+        BancoResgate dbResgate = getConnection();
         return dbResgate.recuperaDadoResgate();
     }
 
@@ -37,11 +38,12 @@ public class ResgateDAO {
 	}
     
     public void deletar(Resgate deletar){
-        ResgateRepository dbResgate = getConnection();
+        BancoResgate dbResgate = getConnection();
         dbResgate.deletar(deletar);
     }
 
     public ArrayList<Resgate> mostrar(){
-        return (ArrayList<Resgate>) ResgateRepository.mostrar();
+        return (ArrayList<Resgate>) BancoResgate.mostrar();
     }
 }
+*/

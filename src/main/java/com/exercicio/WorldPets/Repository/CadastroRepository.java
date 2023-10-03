@@ -1,37 +1,9 @@
-package com.exercicio.WorldPets.Repository;
+package com.exercicio.WorldPets.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
+import org.springframework.data.repository.CrudRepository;
 
-import com.exercicio.WorldPets.Model.Cadastro;
+import com.exercicio.WorldPets.model.Cadastro;
 
-public class CadastroRepository {
-    private static ArrayList<Cadastro> cadastros;
-	
-    public static void init(){
-        cadastros = new ArrayList<Cadastro>();
-        cadastros.add(new Cadastro("Jose", "Rua 1", "jose@gmail.com", "4002-8922"));
-    }
-
-	public CadastroRepository() {
-        cadastros = new ArrayList<>();
-    }
-
-    public static void addDado(Cadastro cadastro) {
-		cadastros.add(cadastro);
-	}
-
-    public static ArrayList<Cadastro> recuperaDado() {
-        return cadastros;
-    }
+public interface CadastroRepository extends CrudRepository<Cadastro, Long> {
     
-    public static void deletar(Cadastro cadastro) {
-        Predicate<Cadastro> condicao = cadastroListaDeletar -> cadastroListaDeletar.getId() == cadastro.getId();
-		cadastros.removeIf(condicao);
-	}
-
-    public static List<Cadastro> all(){
-        return cadastros;
-    }
 }

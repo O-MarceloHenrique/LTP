@@ -1,11 +1,22 @@
-package com.exercicio.WorldPets.Model;
+package com.exercicio.WorldPets.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Cadastro {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String endereco;
     private String email;
     private String telefone;
+
+    public Cadastro(){
+    }
 
     public Cadastro(String nome, String endereco, String email, String telefone) {
 	    this.nome = nome;
@@ -14,11 +25,11 @@ public class Cadastro {
 	    this.telefone = telefone;
 	}
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,4 +1,4 @@
-package com.exercicio.WorldPets.model;
+package com.exercicio.WorldPets.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

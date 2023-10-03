@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-import com.exercicio.WorldPets.model.Resgate;
+import com.exercicio.WorldPets.Model.Resgate;
 
 public class BancoResgate {
     private static ArrayList<Resgate> resgates;

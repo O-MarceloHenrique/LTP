@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-import com.exercicio.WorldPets.model.Cadastro;
+import com.exercicio.WorldPets.Model.Cadastro;
 
 public class BancoCadastro {
     private static ArrayList<Cadastro> cadastros;

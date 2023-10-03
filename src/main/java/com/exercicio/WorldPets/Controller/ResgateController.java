@@ -1,4 +1,4 @@
-package com.exercicio.WorldPets.controller;
+package com.exercicio.WorldPets.Controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exercicio.WorldPets.model.Resgate;
-import com.exercicio.WorldPets.repository.ResgateRepository;
+import com.exercicio.WorldPets.Model.Resgate;
+import com.exercicio.WorldPets.Repository.ResgateRepository;
 
 @RestController
 @CrossOrigin

@@ -3,7 +3,7 @@ package com.exercicio.WorldPets.etapa1_db;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
-import com.exercicio.WorldPets.model.Animal;
+import com.exercicio.WorldPets.Model.Animal;
 
 public class BancoAnimal {
     private static ArrayList<Animal> animals;
